@@ -11,7 +11,7 @@ def cadastro_paciente():
     registro = request.json 
     for listar in Paciente:
         if listar["cpf"] == registro["cpf"]:  
-            return {"Algo deu errado.":"Esse cpf ja existe."}
+            return {"Erro.":"Esse cpf ja existe."}
     registro = {
         "id": str(uuid.uuid4()),
         "cpf": registro["cpf"],
@@ -19,3 +19,19 @@ def cadastro_paciente():
         }
     Paciente.append(registro)
     return jsonify(registro)
+
+enfermeiras = []
+
+@app.route("/cadastro/enfermeira", methods=['POST'])
+def camisetas():
+    cadastro_enfermeira = request.json
+    for lista in enfermeiras:
+        if lista["coren"] == cadastro_enfermeira["coren"]:
+            return {"status": "Produto já cadastrado."}
+    cadastro_enfermeira = {
+        "codigo_barras": str(uuid.uuid4()),
+        "coren": cadastro_enfermeira["coren"],
+        "senha":cadastro_enfermeira["senha"]
+    }
+    enfermeiras.append(cadastro_enfermeira)
+    return jsonify(cadastro_enfermeira)
