@@ -35,3 +35,13 @@ def camisetas():
     }
     enfermeiras.append(cadastro_enfermeira)
     return jsonify(cadastro_enfermeira)
+
+@app.route("/login_pacientes/pacientes", methods=['POST'])
+def logar():
+    login_pacientes = request.json
+    for login_pacientes in Paciente:
+        if login_pacientes["cpf"] == login_pacientes["cpf"] and login_pacientes["senha"] == login_pacientes["senha"]:
+            return{"Paciente.":"Logado."}
+        else:
+            return{"Status":"Cpf ou Senha Incorretos."}
+
