@@ -58,4 +58,7 @@ def logar():
 @app.route("/banco_de_dados/pacientes")
 def usuarios():
     return jsonify(Paciente)
-    
+
+@app.route("/banco_de_dados/enfermeiras(o)")
+def usuarios():
+    return jsonify(enfermeiras)
