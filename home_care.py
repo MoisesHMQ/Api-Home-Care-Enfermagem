@@ -8,17 +8,17 @@ Paciente = []
 
 @app.route("/cadastrar/pacientes", methods=['POST'])
 def cadastro_paciente():
-    registro = request.json 
+    cadastro_pacientes = request.json 
     for listar in Paciente:
-        if listar["cpf"] == registro["cpf"]:  
+        if listar["cpf"] == cadastro_pacientes["cpf"]:  
             return {"Erro.":"Esse cpf ja existe."}
-    registro = {
+    cadastro_pacientes = {
         "id": str(uuid.uuid4()),
-        "cpf": registro["cpf"],
-        "senha": registro["senha"]
+        "cpf": cadastro_pacientes["cpf"],
+        "senha": cadastro_pacientes["senha"]
         }
-    Paciente.append(registro)
-    return jsonify(registro)
+    Paciente.append(cadastro_pacientes)
+    return jsonify(cadastro_pacientes)
 
 enfermeiras = []
 
