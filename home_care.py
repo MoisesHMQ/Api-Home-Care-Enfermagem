@@ -56,9 +56,13 @@ def logar():
             return{"Status":"coren ou Senha Incorretos."}
 
 @app.route("/banco_de_dados/pacientes")
-def usuarios():
+def pacientes_dados():
     return jsonify(Paciente)
 
 @app.route("/banco_de_dados/enfermeiras(o)")
-def usuarios():
+def enfermeiros_dados():
     return jsonify(enfermeiras)
+
+@app.route("/banco_de_dados")
+def banco_de_dados():
+    return jsonify(Paciente,enfermeiras)
