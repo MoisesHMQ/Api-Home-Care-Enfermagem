@@ -29,7 +29,7 @@ def camisetas():
         if lista["coren"] == cadastro_enfermeira["coren"]:
             return {"status": "Produto já cadastrado."}
     cadastro_enfermeira = {
-        "codigo_barras": str(uuid.uuid4()),
+        "codigo": str(uuid.uuid4()),
         "coren": cadastro_enfermeira["coren"],
         "senha":cadastro_enfermeira["senha"]
     }
@@ -75,3 +75,13 @@ def excluir_pacientes():
         if listas["id"] == pacientes_excluir["id"]:
             Paciente.remove(listas)
             return pacientes_excluir
+
+
+@app.route("/excluir/enfemeiras", methods=['POST'])
+def excluir_enfemeiras():
+    enfermeiras_excluir = request.json
+    print(enfermeiras)
+    for listagem in enfermeiras:
+        if listagem["codigo"] == enfermeiras_excluir["codigo"]:
+            enfermeiras.remove(listagem)
+            return enfermeiras_excluir
