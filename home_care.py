@@ -47,7 +47,7 @@ def logar():
 
 
 @app.route("/login/enfermeira", methods=['POST'])
-def logar():
+def logar_enfermeira():
     login = request.json
     for login in enfermeiras:
         if login["coren"] == login["coren"] and login["senha"] == login["senha"]:
@@ -85,3 +85,5 @@ def excluir_enfemeiras():
         if listagem["codigo"] == enfermeiras_excluir["codigo"]:
             enfermeiras.remove(listagem)
             return enfermeiras_excluir
+
+app.run()
