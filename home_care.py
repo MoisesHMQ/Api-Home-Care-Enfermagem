@@ -66,3 +66,12 @@ def enfermeiros_dados():
 @app.route("/banco_de_dados")
 def banco_de_dados():
     return jsonify(Paciente,enfermeiras)
+
+@app.route("/excluir/pacientes", methods=['POST'])
+def excluir_pacientes():
+    pacientes_excluir = request.json
+    print(Paciente)
+    for listas in Paciente:
+        if listas["id"] == pacientes_excluir["id"]:
+            Paciente.remove(listas)
+            return pacientes_excluir
