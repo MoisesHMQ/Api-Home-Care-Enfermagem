@@ -54,3 +54,8 @@ def logar():
             return{"enfermeira(o)":"Logado."}
         else:
             return{"Status":"coren ou Senha Incorretos."}
+
+@app.route("/banco_de_dados/pacientes")
+def usuarios():
+    return jsonify(Paciente)
+    
